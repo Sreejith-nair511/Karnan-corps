@@ -1,0 +1,22 @@
+# Karnan Configuration File
+
+# Buffer radius for imagery search (meters)
+buffer_radius_m: 20
+
+# Minimum image resolution (pixels)
+image_min_resolution_px: 512
+
+# Confidence threshold for VERIFIABLE status
+confidence_threshold_verifiable: 0.7
+
+# Area to watt-peak conversion factor (Wp/m²)
+area_wp_per_m2: 170
+
+# Model type: mock|yolov8|roboflow
+model_type: mock
+
+# Satellite provider: mock|openstreetmap|mapbox|sentinel
+satellite_provider: mock
+
+# Base STP points for verified solar installations
+base_stp_points: 100

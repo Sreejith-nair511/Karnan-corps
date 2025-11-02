@@ -1,0 +1,53 @@
+{
+  "HomePage": {
+    "title": "India's Rooftop Solar Progress",
+    "description": "Real-time verification stats powered by AI. Transparent, corruption-proof, and citizen-first.",
+    "citizenPortal": {
+      "title": "Citizen Portal",
+      "description": "Check your rooftop, get a Green Certificate, and redeem rewards."
+    },
+    "getStarted": "Get Started",
+    "uploadVerification": {
+      "title": "Upload Verification CSV",
+      "description": "CSV with lat, lon columns. Imagery fetch & model inference will run server-side."
+    },
+    "liveProgress": {
+      "title": "Live Progress Feed"
+    }
+  },
+  "Navigation": {
+    "verificationConsole": "Verification Console",
+    "citizenPortal": "Citizen Portal",
+    "transparency": "Transparency",
+    "adminRewards": "Admin Rewards"
+  },
+  "Common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "close": "Close"
+  },
+  "IndiaStats": {
+    "title": "National Solar Stats",
+    "capacity": "Total Installed Capacity",
+    "verified": "Verified Installations",
+    "co2": "CO2 Offset",
+    "households": "Households Powered",
+    "capacityValue": "12.8 GW",
+    "verifiedValue": "2.4M",
+    "co2Value": "15.2M tons",
+    "householdsValue": "3.2M"
+  },
+  "IndiaAlerts": {
+    "title": "Solar Alerts",
+    "alert1": "High irradiance detected in Rajasthan",
+    "alert2": "Verification backlog in Maharashtra",
+    "alert3": "New policy update for Tamil Nadu"
+  }
+}

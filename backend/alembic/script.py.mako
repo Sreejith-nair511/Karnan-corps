@@ -1,0 +1,1 @@
+{"script_location": "alembic", "version_locations": [], "file_template": "%%(rev)s_%%(slug)s", "truncate_slug_length": 40, "version_path_separator": "os", "output_encoding": "utf-8"}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Karnan Integration Demo</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 4px; }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+        .info { background-color: #d1ecf1; color: #0c5460; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+        pre { background-color: #f8f9fa; padding: 15px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Karnan Solar Verification - Integration Demo</h1>
+        
+        <div id="status" class="status info">
+            Ready to test integration
+        </div>
+        
+        <div>
+            <button onclick="testBackendHealth()">Test Backend Health</button>
+            <button onclick="testFrontend()">Test Frontend</button>
+            <button onclick="testApiEndpoint()">Test API Endpoint</button>
+            <button onclick="runVerification()">Run Sample Verification</button>
+        </div>
+        
+        <h2>Results:</h2>
+        <pre id="results">No results yet</pre>
+    </div>
+
+    <script>
+        async function updateStatus(message, type = 'info') {
+            const statusEl = document.getElementById('status');
+            statusEl.textContent = message;
+            statusEl.className = 'status ' + type;
+        }
+        
+        async function updateResults(data) {
+            document.getElementById('results').textContent = JSON.stringify(data, null, 2);
+        }
+        
+        async function testBackendHealth() {
+            try {
+                updateStatus('Testing backend health...', 'info');
+                const response = await fetch('http://localhost:8000/health');
+                const data = await response.json();
+                updateStatus('Backend health check successful!', 'success');
+                updateResults(data);
+            } catch (error) {
+                updateStatus('Backend health check failed: ' + error.message, 'error');
+                updateResults({ error: error.message });
+            }
+        }
+        
+        async function testFrontend() {
+            try {
+                updateStatus('Testing frontend...', 'info');
+                const response = await fetch('/');
+                updateStatus('Frontend is running!', 'success');
+                updateResults({ status: response.status, statusText: response.statusText });
+            } catch (error) {
+                updateStatus('Frontend test failed: ' + error.message, 'error');
+                updateResults({ error: error.message });
+            }
+        }
+        
+        async function testApiEndpoint() {
+            try {
+                updateStatus('Testing API endpoint...', 'info');
+                const response = await fetch('http://localhost:8000/api/v1/health');
+                const data = await response.json();
+                updateStatus('API endpoint test successful!', 'success');
+                updateResults(data);
+            } catch (error) {
+                updateStatus('API endpoint test failed: ' + error.message, 'error');
+                updateResults({ error: error.message });
+            }
+        }
+        
+        async function runVerification() {
+            try {
+                updateStatus('Running sample verification...', 'info');
+                const response = await fetch('http://localhost:8000/api/v1/verify/single', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        sample_id: 'demo_site_001',
+                        lat: 28.6139,
+                        lon: 77.2090
+                    })
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    updateStatus('Sample verification completed!', 'success');
+                    updateResults(data);
+                } else {
+                    const errorText = await response.text();
+                    updateStatus('Sample verification failed: ' + response.status, 'error');
+                    updateResults({ error: response.status, details: errorText });
+                }
+            } catch (error) {
+                updateStatus('Sample verification failed: ' + error.message, 'error');
+                updateResults({ error: error.message });
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: karnan-db
+    environment:
+      POSTGRES_DB: karnan
+      POSTGRES_USER: karnan_user
+      POSTGRES_PASSWORD: karnan_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - karnan-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: karnan-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - karnan-network
+
+  minio:
+    image: minio/minio:latest
+    container_name: karnan-minio
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+    networks:
+      - karnan-network
+
+  backend:
+    build: .
+    container_name: karnan-backend
+    depends_on:
+      - db
+      - redis
+      - minio
+    environment:
+      DATABASE_URL: postgresql://karnan_user:karnan_password@db:5432/karnan
+      REDIS_URL: redis://redis:6379/0
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minioadmin
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    networks:
+      - karnan-network
+
+volumes:
+  postgres_data:
+  minio_data:
+
+networks:
+  karnan-network:
+    driver: bridge
