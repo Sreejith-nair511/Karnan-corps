@@ -53,8 +53,8 @@ export function TeamCollaborationDashboard() {
 
   const [messages, setMessages] = useState<Message[]>([
     { id: "1", userId: "1", userName: "Goodwell Sreejith S", content: "Finished training the solar detection model with 94.2% accuracy!", timestamp: "2 hours ago" },
-    { id: "2", userId: "2", userName: "Vasudha", content: "Dataset preprocessing complete. Ready for model training.", timestamp: "4 hours ago" },
-    { id: "3", userId: "3", userName: "Nikhil", content: "UI dashboard is 80% complete. Need feedback on the prediction charts.", timestamp: "1 day ago" },
+    { id: "2", userId: "2", userName: "teajswini ", content: "Dataset preprocessing complete. Ready for model training.", timestamp: "4 hours ago" },
+    { id: "3", userId: "3", userName: "rohtih ", content: "UI dashboard is 80% complete. Need feedback on the prediction charts.", timestamp: "1 day ago" },
   ]);
 
   const [tasks, setTasks] = useState<Task[]>([
