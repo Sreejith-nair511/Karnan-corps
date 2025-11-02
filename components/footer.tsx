@@ -23,9 +23,9 @@ export function Footer() {
             <span className="font-medium">Team Members:</span>
             <span>Goodwell Sreejith S</span>
             <span>•</span>
-            <span>Vasudha</span>
+            <span>Tejaswini sa </span>
             <span>•</span>
-            <span>Nikhil</span>
+            <span>rohtih </span>
           </motion.div>
           
           <motion.div 
