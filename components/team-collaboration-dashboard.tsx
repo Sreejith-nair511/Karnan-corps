@@ -46,8 +46,8 @@ export function TeamCollaborationDashboard() {
   
   const teamMembers: TeamMember[] = [
     { id: "1", name: "Goodwell Sreejith S", role: "AI/ML Lead", avatar: "GS" },
-    { id: "2", name: "Vasudha", role: "Data Scientist", avatar: "V" },
-    { id: "3", name: "Nikhil", role: "Frontend Developer", avatar: "N" },
+    { id: "2", name: "Tejaswini sa ", role: "Data Scientist", avatar: "V" },
+    { id: "3", name: "rohith ", role: "Frontend Developer", avatar: "N" },
     { id: "4", name: "You", role: "Team Lead", avatar: "Y" },
   ];
 
