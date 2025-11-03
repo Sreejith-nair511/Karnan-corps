@@ -1,7 +1,12 @@
+import sys
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from contextlib import asynccontextmanager
+
+# Add the parent directory to the Python path to import models
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from app.api.routes import api_router
 from app.core.config import settings

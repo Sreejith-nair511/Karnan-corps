@@ -17,7 +17,8 @@ import {
   ZapIcon,
   LeafIcon,
   AwardIcon,
-  BarChartIcon
+  BarChartIcon,
+  EyeIcon
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -36,6 +37,7 @@ export function FuturisticNavbar() {
     { href: "/citizen", label: t('citizenPortal'), icon: UserIcon },
     { href: "/transparency", label: t('transparency'), icon: FileTextIcon },
     { href: "/rewards", label: t('adminRewards'), icon: TrophyIcon },
+    { href: "/solar-detection", label: "Solar Detection", icon: EyeIcon }
   ];
 
   useEffect(() => {
