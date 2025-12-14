@@ -22,7 +22,7 @@ import {
   CheckIcon,
   XIcon,
   BrainIcon,
-  DroneIcon,
+  PlaneIcon,
   GaugeIcon
 } from "lucide-react"
 
@@ -536,7 +536,7 @@ export default function SolarDetectionPage() {
                 {/* Drone Images Section */}
                 <div className="mt-6">
                   <h3 className="font-medium flex items-center gap-2 mb-3">
-                    <DroneIcon className="h-4 w-4" />
+                    <PlaneIcon className="h-4 w-4" />
                     ड्रोन छवि के उदाहरण
                   </h3>
                   <div className="grid grid-cols-3 gap-2">

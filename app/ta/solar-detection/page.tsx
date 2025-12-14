@@ -22,7 +22,7 @@ import {
   CheckIcon,
   XIcon,
   BrainIcon,
-  DroneIcon,
+  PlaneIcon,
   GaugeIcon
 } from "lucide-react"
 
@@ -41,7 +41,7 @@ export default function SolarDetectionPage() {
   // Model accuracy data
   const modelAccuracy = {
     mistral: {
-      name: "கர்னானா மாடல்",
+      name: "கர்ணானா மாடல்",
       accuracy: 94.2,
       precision: 92.8,
       recall: 95.1,
@@ -310,7 +310,7 @@ export default function SolarDetectionPage() {
                         <SelectItem value="mistral">
                           <div className="flex items-center gap-2">
                             <BrainIcon className="h-4 w-4" />
-                            கர்னானா மாடல் (பரிந்துரைக்கப்பட்டது)
+                            கர்ணானா மாடல் (பரிந்துரைக்கப்பட்டது)
                           </div>
                         </SelectItem>
                         <SelectItem value="unet">யு-நெட் (பிரிப்பு)</SelectItem>
@@ -536,7 +536,7 @@ export default function SolarDetectionPage() {
                 {/* Drone Images Section */}
                 <div className="mt-6">
                   <h3 className="font-medium flex items-center gap-2 mb-3">
-                    <DroneIcon className="h-4 w-4" />
+                    <PlaneIcon className="h-4 w-4" />
                     ட்ரோன் படங்கள் எடுத்துக்காட்டு
                   </h3>
                   <div className="grid grid-cols-3 gap-2">

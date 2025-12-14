@@ -22,7 +22,7 @@ import {
   CheckIcon,
   XIcon,
   BrainIcon,
-  DroneIcon,
+  PlaneIcon,
   GaugeIcon
 } from "lucide-react"
 
@@ -458,7 +458,7 @@ export default function SolarDetectionPage() {
                       <div className="mt-4 p-3 rounded-lg bg-secondary/10 border border-secondary/20">
                         <h4 className="font-medium text-sm mb-1 flex items-center gap-2">
                           <BrainIcon className="h-4 w-4" />
-                          വിശകലന വി解释
+                          വിശകലന വിപിശേഷണം
                         </h4>
                         <p className="text-sm text-muted-foreground">
                           {results.explanation}
@@ -536,7 +536,7 @@ export default function SolarDetectionPage() {
                 {/* Drone Images Section */}
                 <div className="mt-6">
                   <h3 className="font-medium flex items-center gap-2 mb-3">
-                    <DroneIcon className="h-4 w-4" />
+                    <PlaneIcon className="h-4 w-4" />
                     ഡ്രോൺ ചിത്രങ്ങൾ ഉദാഹരണം
                   </h3>
                   <div className="grid grid-cols-3 gap-2">
