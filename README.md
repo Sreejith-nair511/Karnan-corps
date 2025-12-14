@@ -1,5 +1,7 @@
 # AI Solar Verification Platform - Futuristic Redesign
 
+live website :https://karnan-corps-sstn.vercel.app/en 
+
 License: MIT | Next.js 14 | Python 3.8+
 
 This is a futuristic redesign of the AI Solar Verification Platform for India, built for the EcoInnovators Ideathon 2026 Challenge: AI-Powered Rooftop PV Detection. The platform features a modern UI with transparency, clean energy insights, and reward tracking while implementing the core challenge requirements for remote verification of rooftop solar installations.
@@ -135,6 +137,12 @@ All sources are properly cited and used in compliance with their respective lice
 - Animated data visualizations
 - Enhanced form components
 - Improved accessibility features
+
+<img width="1788" height="923" alt="image" src="https://github.com/user-attachments/assets/c674746c-9ada-4cfd-8ba0-4b9fa429d7ee" />
+<img width="1765" height="937" alt="image" src="https://github.com/user-attachments/assets/adee21e8-4ebc-49dd-add5-e13ea8eac0ee" />
+<img width="1732" height="521" alt="image" src="https://github.com/user-attachments/assets/188d506f-fb6d-4723-ba1c-4ce4ae50833e" />
+
+
 
 ## Design Highlights
 
