@@ -58,3 +58,4 @@ export default async function RootLayout({
     </html>
   )
 }
+//here  is the mistral api and here is the mistral api WGvgPnrRiAkCaaF3VpNO7X1njByiDVTY use this too where it is required   

@@ -20,7 +20,8 @@ import {
   PlayIcon,
   FileImageIcon,
   CheckIcon,
-  XIcon
+  XIcon,
+  BrainIcon
 } from "lucide-react"
 
 export default function SolarDetectionPage() {
@@ -29,7 +30,7 @@ export default function SolarDetectionPage() {
   const [isProcessing, setIsProcessing] = useState(false)
   const [progress, setProgress] = useState(0)
   const [results, setResults] = useState<any>(null)
-  const [modelType, setModelType] = useState('unet')
+  const [modelType, setModelType] = useState('mistral') // Default to Mistral
   const [coordinates, setCoordinates] = useState({ lat: '', lon: '' })
   const [sampleId, setSampleId] = useState('')
   const [error, setError] = useState<string | null>(null)
@@ -123,7 +124,8 @@ export default function SolarDetectionPage() {
         panelCount: data.panel_count_est || 0,
         area: data.pv_area_sqm_est ? data.pv_area_sqm_est.toFixed(1) : '0.0',
         capacity: data.capacity_kw_est ? data.capacity_kw_est.toFixed(1) : '0.0',
-        co2Offset: data.capacity_kw_est ? (data.capacity_kw_est * 0.85).toFixed(1) : '0.0'
+        co2Offset: data.capacity_kw_est ? (data.capacity_kw_est * 0.85).toFixed(1) : '0.0',
+        explanation: data.bbox_or_mask?.data || ''
       }
       
       setResults(formattedResults)
@@ -180,7 +182,7 @@ export default function SolarDetectionPage() {
             Solar Panel Detection
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Upload aerial or satellite images to automatically detect, segment, and measure rooftop solar panels
+            Upload aerial or satellite images to automatically detect, segment, and measure rooftop solar panels using AI
           </p>
         </motion.div>
 
@@ -277,6 +279,12 @@ export default function SolarDetectionPage() {
                         <SelectValue placeholder="Select model" />
                       </SelectTrigger>
                       <SelectContent>
+                        <SelectItem value="mistral">
+                          <div className="flex items-center gap-2">
+                            <BrainIcon className="h-4 w-4" />
+                            Mistral AI (Recommended)
+                          </div>
+                        </SelectItem>
                         <SelectItem value="unet">U-Net (Segmentation)</SelectItem>
                         <SelectItem value="yolov5">YOLOv5 (Detection)</SelectItem>
                       </SelectContent>
@@ -404,6 +412,19 @@ export default function SolarDetectionPage() {
                       </div>
                     </div>
                     
+                    {/* Explanation */}
+                    {results.explanation && (
+                      <div className="mt-4 p-3 rounded-lg bg-secondary/10 border border-secondary/20">
+                        <h4 className="font-medium text-sm mb-1 flex items-center gap-2">
+                          <BrainIcon className="h-4 w-4" />
+                          Analysis Explanation
+                        </h4>
+                        <p className="text-sm text-muted-foreground">
+                          {results.explanation}
+                        </p>
+                      </div>
+                    )}
+                    
                     <div className="flex gap-3 mt-6">
                       <Button 
                         variant="outline" 
@@ -487,12 +508,12 @@ export default function SolarDetectionPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex items-start gap-3">
                   <div className="p-2 rounded-full bg-primary/10">
-                    <SunIcon className="h-5 w-5 text-primary" />
+                    <BrainIcon className="h-5 w-5 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-medium mb-1">AI-Powered Detection</h3>
                     <p className="text-sm text-muted-foreground">
-                      Uses state-of-the-art computer vision models to automatically detect solar panels in aerial imagery
+                      Uses state-of-the-art computer vision models and Mistral AI to automatically detect solar panels in aerial imagery
                     </p>
                   </div>
                 </div>
