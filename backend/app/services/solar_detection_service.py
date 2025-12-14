@@ -24,8 +24,7 @@ except ImportError:
 
 # Try to import Mistral AI client
 try:
-    from mistralai.client import MistralClient
-    from mistralai.models.chat_completion import ChatMessage
+    from mistralai import Mistral
     MISTRAL_AVAILABLE = True
 except ImportError:
     MISTRAL_AVAILABLE = False
@@ -88,7 +87,7 @@ async def _run_mistral_detection(
         raise ValueError("MISTRAL_API_KEY environment variable not set")
     
     # Initialize Mistral client
-    client = MistralClient(api_key=api_key)
+    client = Mistral(api_key=api_key)
     
     # Convert image to base64
     with open(file_path, "rb") as image_file:
@@ -112,30 +111,33 @@ async def _run_mistral_detection(
     }
     """
     
-    # Create message with image
-    messages = [
-        ChatMessage(
-            role="user",
-            content=[
-                {"type": "text", "text": prompt},
-                {"type": "image_url", "image_url": f"data:image/jpeg;base64,{encoded_image}"}
-            ]
-        )
-    ]
-    
-    # Call Mistral API
-    response = client.chat(
-        model="mistral-large-latest",
-        messages=messages,
-        temperature=0.1,
-        max_tokens=300
-    )
-    
-    # Parse response
     try:
-        # Extract JSON from response
-        response_text = response.choices[0].message.content.strip()
-        # Find JSON in response (handle potential markdown formatting)
+        # Call Mistral API
+        chat_response = client.chat.complete(
+            model="mistral-large-latest",
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": prompt
+                        },
+                        {
+                            "type": "image_url",
+                            "image_url": f"data:image/jpeg;base64,{encoded_image}"
+                        }
+                    ]
+                }
+            ],
+            temperature=0.1,
+            max_tokens=300
+        )
+        
+        # Extract response text
+        response_text = chat_response.choices[0].message.content.strip()
+        
+        # Parse JSON response
         import json
         import re
         
