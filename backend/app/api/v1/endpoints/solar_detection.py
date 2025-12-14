@@ -13,7 +13,7 @@ async def detect_solar_panels_endpoint(
     sample_id: str = Form(...),
     lat: float = Form(...),
     lon: float = Form(...),
-    model_type: str = Form("unet")  # Can be "unet" or "yolov5"
+    model_type: str = Form("mistral")  # Can be "mistral", "unet" or "yolov5"
 ):
     """
     Detect solar panels in an uploaded image using pretrained models.
@@ -23,7 +23,7 @@ async def detect_solar_panels_endpoint(
         sample_id: Unique identifier for the sample
         lat: Latitude coordinate
         lon: Longitude coordinate
-        model_type: Type of model to use ("unet" or "yolov5")
+        model_type: Type of model to use ("mistral", "unet" or "yolov5")
         
     Returns:
         SiteVerificationResponse with detection results
