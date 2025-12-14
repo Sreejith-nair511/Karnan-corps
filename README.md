@@ -1,6 +1,7 @@
 # AI Solar Verification Platform - Futuristic Redesign
 
-live website :https://karnan-corps-sstn.vercel.app/en 
+live website 1:https://karnan-corps-kk4a.vercel.app/en
+live website 2:https://karnan-corps-sstn.vercel.app/en 
 
 License: MIT | Next.js 14 | Python 3.8+
 
