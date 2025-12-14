@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { IndiaMap } from "@/components/india-map"
+import { SimpleIndiaMap } from "@/components/simple-india-map"
 import { HeroStats } from "@/components/hero-stats"
 import { ProgressFeed } from "@/components/progress-feed"
 import { UploadVerificationCSV } from "@/components/upload-verification-csv"
@@ -88,12 +89,25 @@ export default function HomePage() {
           <div className="grid gap-8 lg:grid-cols-3">
             {/* Left Column */}
             <div className="lg:col-span-2 space-y-8">
-              {/* India Map */}
+              {/* India Map - Testing with Simple Map */}
               <Card className="glass-card border-primary/20 border-2 hover:shadow-xl transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="text-2xl flex items-center gap-2">
                     <MapIcon className="h-6 w-6" />
-                    India Solar Progress Map
+                    India Solar Progress Map (Testing)
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <SimpleIndiaMap />
+                </CardContent>
+              </Card>
+
+              {/* Original India Map for comparison */}
+              <Card className="glass-card border-primary/20 border-2 hover:shadow-xl transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="text-2xl flex items-center gap-2">
+                    <MapIcon className="h-6 w-6" />
+                    India Solar Progress Map (Original)
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
